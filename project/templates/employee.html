@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+
+
+{% block body_block %}
+    <div class="jumbotron">
+      {% if registered %}
+        <h1>Thank you for registering!</h1>
+      {% else %}
+        <h1>Registration for New Employee</h1>
+        <hr>
+        <br>
+        <form style="text-align:left" method="POST">
+          {% csrf_token %}
+          <p>{{ user_form.as_p }}</p>
+          <input type="submit" name="" value="Add Employee">
+        </form>
+
+      {% endif %}
+
+    </div>
+
+{% endblock %}
